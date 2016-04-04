@@ -1,5 +1,6 @@
-#include "RenderUtility.h"
 #include <GL/glew.h>
+#include <iostream>
+#include "RenderUtility.h"
 #include "Printer.h"
 
 void RenderUtil::InitGraphics()

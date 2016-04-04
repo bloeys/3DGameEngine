@@ -1,6 +1,6 @@
-#include "MyTransform.h"
 #include <glm/gtc/matrix_transform.hpp>
-#include"Printer.h"
+#include "MyTransform.h"
+#include "Printer.h"
 
 MyTransform::MyTransform() : pos(0, 0, 0), rot(glm::vec3(0, 0, 0)), scale(1, 1, 1), hasChanged(true)
 {
@@ -9,12 +9,11 @@ MyTransform::MyTransform() : pos(0, 0, 0), rot(glm::vec3(0, 0, 0)), scale(1, 1, 
 
 MyTransform::MyTransform(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale) : hasChanged(true)
 {
-	SetPosition(pos);
+	SetPosition(position);
 	SetRotation(rotation);
-
+	SetScale(scale);
 }
 
-///Moves transform by passed amount
 void MyTransform::Translate(const glm::vec3 &translation)
 {
 	pos += translation;
@@ -29,7 +28,6 @@ void MyTransform::Translate(const float x, const float y, const float z)
 	hasChanged = true;
 }
 
-///Sets the position of the transform to the new passed position
 void MyTransform::SetPosition(const glm::vec3 &newPos)
 {
 	pos = newPos;
@@ -44,8 +42,7 @@ void MyTransform::SetPosition(const float x, const float y, const float z)
 	hasChanged = true;
 }
 
-///Returns current position
-glm::vec3 MyTransform::GetPos() const
+glm::vec3 MyTransform::GetPos()
 {
 	return pos;
 }
@@ -90,7 +87,7 @@ void MyTransform::SetRotation(const float x, const float y, const float z)
 }
 
 ///Returns the current rotation
-glm::quat MyTransform::GetRot() const
+glm::quat MyTransform::GetRot()
 {
 	return rot;
 }
@@ -111,7 +108,7 @@ void MyTransform::SetScale(const float x, const float y, const float z)
 }
 
 ///Returns the scale of the object
-glm::vec3 MyTransform::GetScale() const
+glm::vec3 MyTransform::GetScale()
 {
 	return scale;
 }

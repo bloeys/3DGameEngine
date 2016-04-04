@@ -62,7 +62,7 @@ void Game::Update()
 void Game::Render()
 {
 	glp.Use();
-	glp.SetUniform("time", transformationSpd);
+	glp.SetUniform("time", 1);
 	glp.SetUniform("transformation", tr.GetTransformationMatrix());
 	m->Draw();
 	glp.UnUse();

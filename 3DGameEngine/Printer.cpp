@@ -5,6 +5,7 @@
 #include "Printer.h"
 #include "3DGameEngine.h"
 #include "EngineCore.h"
+#include <iostream>
 
 void Printer::Print(const std::string &m)
 {

@@ -3,19 +3,24 @@
 #ifndef MYTRANSFORM_H
 #define MYTRANSFORM_H
 
-#include <glm/vec3.hpp>
-#include <glm/mat4x4.hpp>
 #include <glm/gtc/quaternion.hpp>
+#include <glm/fwd.hpp>
 
 class MyTransform
 {
 public:
 	//Translation
+	
+	///<summary>Moves transform by passed amount</summary>
 	void Translate(const glm::vec3 &translation);
+	///<summary>Moves transform by passed amount</summary>
 	void Translate(const float x, const float y, const float z);
+	///<summary>Sets the position of the transform</summary>
 	void SetPosition(const glm::vec3 &newPos);
+	///<summary>Sets the position of the transform</summary>
 	void SetPosition(const float x, const float y, const float z);
-	inline glm::vec3 GetPos() const;
+	///<summary>Returns the current position of the transform</summary>
+	glm::vec3 GetPos();
 
 	//Rotation
 	void Rotate(const glm::vec3 &rotation);
@@ -24,12 +29,12 @@ public:
 	void SetRotation(const glm::quat newRot);
 	void SetRotation(const glm::vec3 newRot);
 	void SetRotation(const float x, const float y, const float z);
-	inline glm::quat GetRot() const;
+	glm::quat GetRot();
 
 	//Scale
 	void SetScale(const glm::vec3 &newScale);
 	void SetScale(const float x, const float y, const float z);
-	inline glm::vec3 GetScale() const;
+	glm::vec3 GetScale();
 
 	//Final transformation matrix
 	glm::mat4 GetTransformationMatrix();
