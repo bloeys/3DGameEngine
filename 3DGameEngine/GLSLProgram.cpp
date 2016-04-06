@@ -167,7 +167,7 @@ void GLSLProgram::SetUniform(const std::string &uniform, const glm::vec4 &v4)
 
 void GLSLProgram::SetUniform(const std::string &uniform, const glm::mat4 &m4)
 {
-	glUniformMatrix4fv(programID, 1, GL_FALSE, &m4[0][0]);
+	glUniformMatrix4fv(uniforms[uniform], 1, GL_FALSE, &m4[0][0]);
 }
 
 void GLSLProgram::Use()

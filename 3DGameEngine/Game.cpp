@@ -21,11 +21,10 @@ Game::Game() : seconds(0), frames(0)
 	glp.AddAttribute("vertPos");
 	glp.AddAttribute("vertColor");
 	glp.LinkShaders();
-	glp.AddUniform("time");
 	glp.AddUniform("transformation");
 
 	m = new Mesh();
-	tr.SetScale(0.5f, 0.5f, 0.5f);
+	tr.SetPosition(0, 0, 20);
 
 	OGLTexture g = {};
 	ResourceLoader::LoadTexture(R"(Resources\Textures\ButtonRound_Red.png)", g);
@@ -54,16 +53,14 @@ void Game::Update()
 		frames++;
 
 	transformationSpd += GameTime::delta * 2;
-	//tr.SetScale(0.5f, 0.1f*transformationSpd, 1);
 	tr.Rotate(0, 45 * GameTime::delta, 0);
-	tr.SetPosition(sin(transformationSpd) * 0.5f, cos(transformationSpd) * 0.5f, 0);
+	tr.SetPosition(0, sin(transformationSpd) * 0.5f, 20);
 }
 
 void Game::Render()
 {
 	glp.Use();
-	glp.SetUniform("time", 1);
-	glp.SetUniform("transformation", tr.GetTransformationMatrix());
+	glp.SetUniform("transformation", tr.GetProjectedTransformationMatrix());
 	m->Draw();
 	glp.UnUse();
 }

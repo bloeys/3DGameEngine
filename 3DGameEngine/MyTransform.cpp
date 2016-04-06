@@ -1,6 +1,13 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include "MyTransform.h"
 #include "Printer.h"
+#include "GameWindow.h"
+
+float MyTransform::FOV = 75.0;
+float MyTransform::width = GameWindow::WINDOWWIDTH;
+float MyTransform::height = GameWindow::WINDOWHEIGHT;
+float MyTransform::zNear = 1;
+float MyTransform::zFar = 1000;
 
 MyTransform::MyTransform() : pos(0, 0, 0), rot(glm::vec3(0, 0, 0)), scale(1, 1, 1), hasChanged(true)
 {
@@ -30,24 +37,23 @@ void MyTransform::Translate(const float x, const float y, const float z)
 
 void MyTransform::SetPosition(const glm::vec3 &newPos)
 {
-	pos = newPos;
+	pos = -newPos;
 	hasChanged = true;
 }
 
 void MyTransform::SetPosition(const float x, const float y, const float z)
 {
-	pos[0] = x;
-	pos[1] = y;
-	pos[2] = z;
+	pos[0] = -x;
+	pos[1] = -y;
+	pos[2] = -z;
 	hasChanged = true;
 }
 
-glm::vec3 MyTransform::GetPos()
+glm::vec3 MyTransform::GetPos() const
 {
 	return pos;
 }
 
-///Rotate transform by amount
 void MyTransform::Rotate(const glm::vec3 &rotation)
 {
 	//Angles are inverted because for some reason passing positive angles rotates anticlockwise, so we reverse that
@@ -67,7 +73,6 @@ void MyTransform::Rotate(const float x, const float y, const float z)
 	hasChanged = true;
 }
 
-///Sets the rotation to the passed rotation
 void MyTransform::SetRotation(const glm::quat newRot)
 {
 	rot = newRot;
@@ -86,13 +91,11 @@ void MyTransform::SetRotation(const float x, const float y, const float z)
 	hasChanged = true;
 }
 
-///Returns the current rotation
-glm::quat MyTransform::GetRot()
+glm::quat MyTransform::GetRot() const
 {
 	return rot;
 }
 
-///Sets the scale of the transform
 void MyTransform::SetScale(const glm::vec3 &newScale)
 {
 	scale = newScale;
@@ -107,13 +110,11 @@ void MyTransform::SetScale(const float x, const float y, const float z)
 	hasChanged = true;
 }
 
-///Returns the scale of the object
-glm::vec3 MyTransform::GetScale()
+glm::vec3 MyTransform::GetScale() const
 {
 	return scale;
 }
 
-///Returns the final transformation matrix containing translation+rotation+scale
 glm::mat4 MyTransform::GetTransformationMatrix()
 {
 	//Only if something has changed (like position) do we calculate the transformation matrix
@@ -125,6 +126,20 @@ glm::mat4 MyTransform::GetTransformationMatrix()
 	}
 
 	return transformationMatrix;
+}
+
+glm::mat4 MyTransform::GetProjectedTransformationMatrix()
+{
+	return glm::perspectiveFov(FOV, width, height, zNear, zFar) * GetTransformationMatrix();
+}
+
+void MyTransform::SetProjection(float fov, float width, float height, float nearClipping, float farClipping)
+{
+	MyTransform::FOV = fov;
+	MyTransform::width = width;
+	MyTransform::height = height;
+	MyTransform::zNear = nearClipping;
+	MyTransform::zFar = farClipping;
 }
 
 MyTransform::~MyTransform()
