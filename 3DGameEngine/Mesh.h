@@ -5,6 +5,7 @@
 
 #include <vector>
 #include "Vertex.h"
+#include "Component.h"
 
 class Mesh
 {

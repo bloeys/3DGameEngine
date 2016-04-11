@@ -9,7 +9,7 @@ class MySprite
 {
 public:
 
-	void Init();
+	void BelongTo();
 
 	MySprite(float x, float y, float width, float height);
 	~MySprite();

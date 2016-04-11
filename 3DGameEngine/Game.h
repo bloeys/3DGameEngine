@@ -17,5 +17,7 @@ public:
 private:
 	float seconds;
 	int frames;
+
+	void InitSystems();
 };
 #endif // !GAME_H

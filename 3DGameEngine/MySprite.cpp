@@ -1,6 +1,6 @@
 #include "MySprite.h"
 
-void MySprite::Init()
+void MySprite::BelongTo()
 {
 }
 

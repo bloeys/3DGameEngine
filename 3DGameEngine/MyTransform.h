@@ -5,12 +5,13 @@
 
 #include <glm/gtc/quaternion.hpp>
 #include <glm/fwd.hpp>
+#include "Component.h"
 
-class MyTransform
+class MyTransform : public Component
 {
 public:
 	//Translation
-	
+
 	///<summary>Moves transform by passed amount</summary>
 	void Translate(const glm::vec3 &translation);
 	///<summary>Moves transform by passed amount</summary>
@@ -39,8 +40,8 @@ public:
 	///<summary>Returns the final transformation matrix containing translation + rotation + scale</summary>
 	glm::mat4 GetTransformationMatrix();
 	glm::mat4 GetProjectedTransformationMatrix();
-
 	static void SetProjection(float fov, float width, float height, float nearClipping, float farClipping);
+
 	MyTransform();
 	MyTransform(const glm::vec3 &position, const glm::vec3 &rotation, const glm::vec3 &scale);
 	~MyTransform();
@@ -53,11 +54,14 @@ private:
 	static float FOV;
 
 	bool hasChanged;	//Whether we need to recalculate the transformation matrix
-	
+
 	glm::vec3 pos;	//Position in 3D space
 	glm::quat rot;	//Rotation
 	glm::vec3 scale;	//Scale
 	glm::mat4 transformationMatrix;
+
+	// Inherited via Component
+	virtual void BelongTo(Entity & e) override;
 };
 
 #endif

@@ -2,6 +2,8 @@
 #include "MyTransform.h"
 #include "Printer.h"
 #include "GameWindow.h"
+#include "TransformSystem.h"
+#include "Entity.h"
 
 float MyTransform::FOV = 75.0;
 float MyTransform::width = GameWindow::WINDOWWIDTH;
@@ -11,6 +13,9 @@ float MyTransform::zFar = 1000;
 
 MyTransform::MyTransform() : pos(0, 0, 0), rot(glm::vec3(0, 0, 0)), scale(1, 1, 1), hasChanged(true)
 {
+	type = ComponentType::Transform;
+	requiredComponents = ComponentType::None;
+	
 	SetPosition(pos);
 }
 
@@ -140,6 +145,15 @@ void MyTransform::SetProjection(float fov, float width, float height, float near
 	MyTransform::height = height;
 	MyTransform::zNear = nearClipping;
 	MyTransform::zFar = farClipping;
+}
+
+void MyTransform::BelongTo(Entity &e)
+{
+	if (!entity)
+	{
+		entity = std::make_shared<Entity>(e);
+		System::AddToSystem(e, System::SystemType::TransformSystem);
+	}
 }
 
 MyTransform::~MyTransform()
