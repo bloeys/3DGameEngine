@@ -95,7 +95,8 @@ void GLSLProgram::LinkShaders()
 
 		//The maxLength includes the NULL character
 		std::vector<char> errorLog(maxLength);
-		glGetProgramInfoLog(programID, maxLength, &maxLength, &errorLog[0]);
+		if (maxLength > 0)
+			glGetProgramInfoLog(programID, maxLength, &maxLength, &errorLog[0]);
 
 		//We don't need the program anymore.
 		glDeleteProgram(programID);

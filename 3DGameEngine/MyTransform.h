@@ -61,7 +61,7 @@ private:
 	glm::mat4 transformationMatrix;
 
 	// Inherited via Component
-	virtual void BelongTo(Entity & e) override;
+	virtual void SetParentEntity(Entity & e) override;
 };
 
 #endif

@@ -15,25 +15,19 @@ System::SystemType System::GetSystemtype()
 void System::AddToSystem(Entity &e, SystemType t)
 {
 	if (activeSystems.find(t) != activeSystems.end())
-	{
 		activeSystems[t]->AddComponent(e);
-	}
 }
 
 void System::RemoveFromSystem(Entity &e, SystemType t)
 {
 	if (activeSystems.find(t) != activeSystems.end())
-	{
 		activeSystems[t]->RemoveComponent(e);
-	}
 }
 
 void System::AddToActiveSystems(System &sys)
 {
 	if (activeSystems.find(sys.GetSystemtype()) == activeSystems.end())
-	{
 		activeSystems[sys.GetSystemtype()] = std::move(std::unique_ptr<System>(&sys));
-	}
 }
 
 System::~System()

@@ -13,16 +13,16 @@ void EntityManager::Update()
 {
 }
 
-void EntityManager::AddEntity(Entity &entity)
+void EntityManager::AddEntity(Entity &parentEntity)
 {
-	if (entities.find(entity.GetId()) == entities.end())
-		entities[entity.GetId()] = std::make_unique<Entity>(entity);
+	if (entities.find(parentEntity.GetId()) == entities.end())
+		entities[parentEntity.GetId()] = std::make_unique<Entity>(parentEntity);
 }
 
-void EntityManager::DestroyEntity(Entity &entity)
+void EntityManager::DestroyEntity(Entity &parentEntity)
 {
-	if (entities.find(entity.GetId()) != entities.end())
-		entities.erase(entity.GetId());
+	if (entities.find(parentEntity.GetId()) != entities.end())
+		entities.erase(parentEntity.GetId());
 }
 
 void EntityManager::DestroyEntity(unsigned entityID)

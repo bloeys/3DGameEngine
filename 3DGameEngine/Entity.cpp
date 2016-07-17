@@ -21,7 +21,7 @@ void Entity::AddComponent(Component* newComp)
 
 	containedTypes = (Component::ComponentType)(containedTypes | newComp->GetType());	//Add this component to our contained components
 	components.emplace_back(newComp);
-	newComp->BelongTo(*this);
+	newComp->SetParentEntity(*this);
 }
 
 void Entity::RemoveComponent(Component* comp)

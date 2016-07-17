@@ -7,7 +7,7 @@
 #include "Vertex.h"
 #include "Component.h"
 
-class Mesh
+class Mesh : public Component
 {
 public:
 
@@ -22,6 +22,8 @@ private:
 	GLuint iboID;	//Index buffer object ID
 	int singleVertexByteSize;
 	int indexCount;
+
+	virtual void SetParentEntity(Entity &e) override;
 };
 
 #endif // !MESH_H

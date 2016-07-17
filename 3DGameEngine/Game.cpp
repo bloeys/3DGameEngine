@@ -22,7 +22,7 @@ Game::Game() : seconds(0), frames(0)
 	
 	e.AddComponent(new MyTransform);
 
-	glp.CompileShader(R"(Resources\Shaders\SimpleColorShader.vert)", R"(Resources\Shaders\SimpleColorShader.frag)");
+	glp.CompileShader(R"(Resources/Shaders/SimpleColorShader.vert)", R"(Resources/Shaders/SimpleColorShader.frag)");
 	glp.AddAttribute("vertPos");
 	glp.AddAttribute("vertColor");
 	glp.LinkShaders();
@@ -30,7 +30,7 @@ Game::Game() : seconds(0), frames(0)
 
 
 	OGLTexture g = {};
-	ResourceLoader::LoadTexture(R"(Resources\Textures\ButtonRound_Red.png)", g);
+	ResourceLoader::LoadTexture(R"(Resources/Textures/ButtonRound_Red.png)", g);
 	if (g.id != 0)
 		Printer::Print("Texture Loaded");
 

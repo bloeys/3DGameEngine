@@ -164,6 +164,7 @@
     <ClInclude Include="GLSLProgram.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="MeshSystem.h" />
     <ClInclude Include="ResourceLoader.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MySprite.h" />
@@ -187,6 +188,7 @@
     <ClCompile Include="GameWindow.cpp" />
     <ClCompile Include="GLSLProgram.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="MeshSystem.cpp" />
     <ClCompile Include="ResourceLoader.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MySprite.cpp" />

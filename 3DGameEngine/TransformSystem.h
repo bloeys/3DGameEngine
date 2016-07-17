@@ -12,15 +12,14 @@ class MyTransform;
 class TransformSystem : public System
 {
 public:
-
 	TransformSystem();
 	~TransformSystem();
 
 protected:
 	// Inherited via System
 	virtual void Update() override;
-	virtual void AddComponent(Entity &entity) override;
-	virtual void RemoveComponent(Entity &entity) override;
+	virtual void AddComponent(Entity &parentEntity) override;
+	virtual void RemoveComponent(Entity &parentEntity) override;
 
 private:
 	std::unordered_map<unsigned int, std::unique_ptr<MyTransform>> systemComponents;

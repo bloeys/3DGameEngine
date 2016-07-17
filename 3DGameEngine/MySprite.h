@@ -9,7 +9,7 @@ class MySprite
 {
 public:
 
-	void BelongTo();
+	void SetParentEntity();
 
 	MySprite(float x, float y, float width, float height);
 	~MySprite();

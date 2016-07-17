@@ -20,7 +20,7 @@ public:
 
 	///<summary>This is automatically called when the component is added</summary>
 	/// <param name="e">The entity this component belongs to</param>
-	virtual void BelongTo(Entity &e) = 0;
+	virtual void SetParentEntity(Entity &e) = 0;
 	std::shared_ptr<Entity> GetEntity() const;
 	ComponentType GetType() const;
 	ComponentType GetRequiredTypes() const;
@@ -30,7 +30,7 @@ public:
 
 protected:
 	System* system;
-	std::shared_ptr<Entity> entity;
+	std::shared_ptr<Entity> parentEntity;
 	ComponentType type;
 	ComponentType requiredComponents;
 };

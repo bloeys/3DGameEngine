@@ -147,11 +147,11 @@ void MyTransform::SetProjection(float fov, float width, float height, float near
 	MyTransform::zFar = farClipping;
 }
 
-void MyTransform::BelongTo(Entity &e)
+void MyTransform::SetParentEntity(Entity &e)
 {
-	if (!entity)
+	if (!parentEntity)
 	{
-		entity = std::make_shared<Entity>(e);
+		parentEntity = std::make_shared<Entity>(e);
 		System::AddToSystem(e, System::SystemType::TransformSystem);
 	}
 }

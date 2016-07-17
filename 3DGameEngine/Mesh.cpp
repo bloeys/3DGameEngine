@@ -1,9 +1,14 @@
+#include <cstddef>	//To use 'offsetof'
 #include "Mesh.h"
 #include "Printer.h"
-#include <cstddef>	//To use 'offsetof'
+#include "MeshSystem.h"
+#include "Entity.h"
 
 Mesh::Mesh() : vboID(0), iboID(0), singleVertexByteSize(0), indexCount(0)
 {
+	type = ComponentType::Mesh;
+	requiredComponents = ComponentType::None;
+
 	//Generate buffers
 	glGenBuffers(1, &vboID);
 	glGenBuffers(1, &iboID);
@@ -19,6 +24,15 @@ void Mesh::AddVertices(const std::vector<Vertex> &vertices, const std::vector<in
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iboID);	//Bind buffer of this type to this id
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * indexCount, &indices[0], GL_STATIC_DRAW);	//Buffer the data
+}
+
+void Mesh::SetParentEntity(Entity & e)
+{
+	if (!parentEntity)
+	{
+		parentEntity = std::make_shared<Entity>(e);
+		System::AddToSystem(e, System::SystemType::RenderSystem);
+	}
 }
 
 void Mesh::Draw()

@@ -36,8 +36,8 @@ protected:
 	void AddToActiveSystems(System &sys);
 
 	virtual void Update() = 0;
-	virtual void AddComponent(Entity &entity) = 0;
-	virtual void RemoveComponent(Entity &entity) = 0;
+	virtual void AddComponent(Entity &parentEntity) = 0;
+	virtual void RemoveComponent(Entity &parentEntity) = 0;
 };
 
 #endif

@@ -7,7 +7,7 @@ Component::Component()
 
 std::shared_ptr<Entity> Component::GetEntity() const
 {
-	return entity;
+	return parentEntity;
 }
 
 Component::ComponentType Component::GetType() const

@@ -12,8 +12,8 @@ class EntityManager
 {
 public:
 	static void Update();
-	static void AddEntity(Entity &entity);
-	static void DestroyEntity(Entity &entity);
+	static void AddEntity(Entity &parentEntity);
+	static void DestroyEntity(Entity &parentEntity);
 	static void DestroyEntity(unsigned entityID);
 	static unsigned GetUniqueID();
 
