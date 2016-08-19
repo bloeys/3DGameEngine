@@ -19,16 +19,24 @@ void TransformSystem::Update()
 void TransformSystem::AddComponent(Entity &parentEntity)
 {
 	//If the entity has the correct components and its not already added to our system then add it
-	if (parentEntity.HasComponent(requiredComponents) && systemComponents.find(parentEntity.GetId()) == systemComponents.end())
-		systemComponents[parentEntity.GetId()] = std::make_unique<MyTransform>(*((MyTransform*)parentEntity.GetComponent(requiredComponents).get()));
+	if (parentEntity.HasComponent(requiredComponents) && transforms.find(parentEntity.GetId()) == transforms.end())
+		transforms[parentEntity.GetId()] = (MyTransform*)parentEntity.GetComponent(Component::ComponentType::Transform);
 	else
 		Printer::PrintError("Entity: " + std::to_string(parentEntity.GetId()) + " Doesn't have transform component");
 }
 
-void TransformSystem::RemoveComponent(Entity &parentEntity)
+Component* TransformSystem::GetComponent(const unsigned int entityID)
 {
-	if (systemComponents.find(parentEntity.GetId()) != systemComponents.end())
-		systemComponents.erase(parentEntity.GetId());
+	if (transforms.find(entityID) != transforms.end())
+		return transforms[entityID];
+
+	return nullptr;
+}
+
+void TransformSystem::DeleteComponent(Entity &parentEntity)
+{
+	if (transforms.find(parentEntity.GetId()) != transforms.end())
+		transforms.erase(parentEntity.GetId());
 }
 
 TransformSystem::~TransformSystem()

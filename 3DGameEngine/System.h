@@ -13,8 +13,8 @@ enum ComponentType;
 class System
 {
 public:
-	
-	enum SystemType : int
+
+	enum SystemType : uint32_t
 	{
 		TransformSystem = 1,
 		RenderSystem = 2
@@ -24,20 +24,22 @@ public:
 
 	static void AddToSystem(Entity &e, SystemType t);
 	static void RemoveFromSystem(Entity &e, SystemType t);
+	static void UpdateSystem(SystemType t);
+	virtual Component* GetComponent(const unsigned int entityID) = 0;
 
 	System();
 	virtual ~System();
 
 protected:
 	SystemType sysType;
-	Component::ComponentType requiredComponents;
+	uint32_t requiredComponents;
 	static std::unordered_map<SystemType, std::unique_ptr<System>> activeSystems;
 
 	void AddToActiveSystems(System &sys);
 
 	virtual void Update() = 0;
 	virtual void AddComponent(Entity &parentEntity) = 0;
-	virtual void RemoveComponent(Entity &parentEntity) = 0;
+	virtual void DeleteComponent(Entity &parentEntity) = 0;
 };
 
 #endif

@@ -7,6 +7,8 @@
 #include "GameTime.h"
 #include "Input.h"
 #include "Printer.h"
+#include "MeshSystem.h"
+#include "TransformSystem.h"
 
 using namespace sf;
 
@@ -51,7 +53,7 @@ void EngineCore::Update()
 		Input::Update();
 		game->Input();
 		game->Update();
-
+		
 		//Render frame
 		Render();
 

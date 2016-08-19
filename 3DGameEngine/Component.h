@@ -11,7 +11,7 @@ class Entity;
 class Component
 {
 public:
-	enum ComponentType : int
+	enum ComponentType : uint32_t
 	{
 		None = 0,
 		Transform = 1,
@@ -23,7 +23,7 @@ public:
 	virtual void SetParentEntity(Entity &e) = 0;
 	std::shared_ptr<Entity> GetEntity() const;
 	ComponentType GetType() const;
-	ComponentType GetRequiredTypes() const;
+	uint32_t GetRequiredTypes() const;
 
 	Component();
 	virtual ~Component();
@@ -32,8 +32,6 @@ protected:
 	System* system;
 	std::shared_ptr<Entity> parentEntity;
 	ComponentType type;
-	ComponentType requiredComponents;
+	uint32_t requiredComponents;
 };
-
-
 #endif

@@ -21,7 +21,13 @@ void System::AddToSystem(Entity &e, SystemType t)
 void System::RemoveFromSystem(Entity &e, SystemType t)
 {
 	if (activeSystems.find(t) != activeSystems.end())
-		activeSystems[t]->RemoveComponent(e);
+		activeSystems[t]->DeleteComponent(e);
+}
+
+void System::UpdateSystem(SystemType t)
+{
+	if (activeSystems.find(t) != activeSystems.end())
+		activeSystems[t]->Update();
 }
 
 void System::AddToActiveSystems(System &sys)

@@ -88,12 +88,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\omarm_000\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\omarm\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\omarm_000\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Libs\SFML;C:\Users\omarm_000\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\omarm\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Libs\SFML;C:\Users\omarm\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Libs</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-main-d.lib;sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;SOIL.lib;glew32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkStatus>false</LinkStatus>
     </Link>

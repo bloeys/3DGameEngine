@@ -1,5 +1,6 @@
 #include "Component.h"
 #include "Entity.h"
+#include "System.h"
 
 Component::Component()
 {
@@ -15,7 +16,7 @@ Component::ComponentType Component::GetType() const
 	return type;
 }
 
-Component::ComponentType Component::GetRequiredTypes() const
+uint32_t Component::GetRequiredTypes() const
 {
 	return requiredComponents;
 }

@@ -1,6 +1,7 @@
 #include "Entity.h"
 #include "EntityManager.h"
 #include "Printer.h"
+#include "Mesh.h"
 
 Entity::Entity() : active(true)
 {
@@ -19,12 +20,12 @@ void Entity::AddComponent(Component* newComp)
 	if (HasComponent(newComp->GetType()))
 		return;
 
-	containedTypes = (Component::ComponentType)(containedTypes | newComp->GetType());	//Add this component to our contained components
+	containedTypes = (containedTypes | newComp->GetType());	//Add this component to our contained components
 	components.emplace_back(newComp);
 	newComp->SetParentEntity(*this);
 }
 
-void Entity::RemoveComponent(Component* comp)
+void Entity::DeleteComponent(Component* comp)
 {
 	if (!HasComponent(comp->GetType()))
 		return;
@@ -38,27 +39,25 @@ void Entity::RemoveComponent(Component* comp)
 	}
 }
 
-std::shared_ptr<Component> Entity::GetComponent(Component::ComponentType type)
+Component* Entity::GetComponent(Component::ComponentType type)
 {
 	//If we don't have a component return a null
 	if (!HasComponent(type))
-		return std::shared_ptr<Component>();
+		return nullptr;
 
 	for (size_t i = 0; i < components.size(); i++)
-	{
 		if (components[i]->GetType() == type)
-		{
-			return std::shared_ptr<Component>(components[i]);
-		}
-	}
+			return components[i];
 }
 
 bool Entity::HasComponent(Component::ComponentType type)
 {
-	if (containedTypes & type)
-		return true;
-	else
-		return false;
+	return containedTypes & type;
+}
+
+bool Entity::HasComponent(uint32_t types)
+{
+	return containedTypes & types;
 }
 
 void Entity::Destroy()
