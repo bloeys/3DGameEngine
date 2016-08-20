@@ -9,6 +9,6 @@ uniform mat4 transformation;
 
 void main()
 {
-	color = vertColor * 0.5;
+	color = vec4(vertPos, 1);
 	gl_Position = transformation * vec4(vertPos, 1);
 }

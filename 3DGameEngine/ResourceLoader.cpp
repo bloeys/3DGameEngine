@@ -5,6 +5,7 @@
 #include "Printer.h"
 #include "GLTexture.h"
 #include "Mesh.h"
+#include "MeshData.h"
 
 bool ResourceLoader::ReadFileToBuffer(const std::string &filePath, std::vector<unsigned char> &buffer)
 {
@@ -73,7 +74,7 @@ bool ResourceLoader::LoadTexture(const std::string &filePath, OGLTexture &tex)
 	return true;
 }
 
-bool ResourceLoader::LoadMesh(const std::string &filePath, Mesh &m)
+bool ResourceLoader::LoadMesh(const std::string &filePath, MeshData &m)
 {
 	std::vector<std::string> splitData;
 	SplitString(filePath, '.', splitData);
@@ -113,6 +114,7 @@ bool ResourceLoader::LoadMesh(const std::string &filePath, Mesh &m)
 			vertices.emplace_back(Vertex(std::stof(splitData[1]), std::stof(splitData[2]), std::stof(splitData[3])));	//Add a new vertex to the vertex vector
 		}
 
+		//Faces
 		else if (line[0] == 'f')
 		{
 			SplitString(line, ' ', splitData);	//Split the line by space
@@ -134,7 +136,7 @@ bool ResourceLoader::LoadMesh(const std::string &filePath, Mesh &m)
 	}
 	meshFile.close();
 
-	m.AddVertices(vertices, indices);
+	m.SetData(vertices, indices);
 	return true;
 }
 

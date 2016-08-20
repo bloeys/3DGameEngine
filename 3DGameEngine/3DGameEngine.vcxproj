@@ -164,6 +164,7 @@
     <ClInclude Include="GLSLProgram.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="MeshData.h" />
     <ClInclude Include="MeshSystem.h" />
     <ClInclude Include="ResourceLoader.h" />
     <ClInclude Include="Mesh.h" />

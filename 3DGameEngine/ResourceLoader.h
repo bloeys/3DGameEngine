@@ -6,6 +6,7 @@
 #include <vector>
 
 class Mesh;
+class MeshData;
 struct OGLTexture;
 
 class ResourceLoader
@@ -15,7 +16,7 @@ public:
 	static bool ReadFileToBuffer(const std::string &filePath, std::vector<unsigned char> &buffer);
 	static bool LoadTexture(const std::string &filePath, OGLTexture &tex);
 	///<summary>Tries to load a mesh from the path and loads it into the passed Mesh object. Returns whether it succeeded or not</summary>
-	static bool LoadMesh(const std::string &filePath, Mesh &m);
+	static bool LoadMesh(const std::string &filePath, MeshData &m);
 	
 	///<summary>Splits a string according to the passed delimiter and fills the vector with the string parts</summary>
 	/// <param name="stringToSplit">String that will be split</param>

@@ -26,6 +26,18 @@ void Mesh::AddVertices(const std::vector<Vertex> &vertices, const std::vector<in
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * indexCount, &indices[0], GL_STATIC_DRAW);	//Buffer the data
 }
 
+void Mesh::AddVertices(const MeshData &mData)
+{
+	singleVertexByteSize = sizeof(Vertex);
+	indexCount = mData.indices.size();	//Store vertex count
+
+	glBindBuffer(GL_ARRAY_BUFFER, vboID);	//Bind buffer of type x to this ID
+	glBufferData(GL_ARRAY_BUFFER, singleVertexByteSize * mData.vertices.size(), &mData.vertices[0], GL_STATIC_DRAW);	//Assign data to buffer
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iboID);	//Bind buffer of this type to this id
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * indexCount, &mData.indices[0], GL_STATIC_DRAW);	//Buffer the data
+}
+
 void Mesh::SetParentEntity(Entity& e)
 {
 	if (!parentEntity)
