@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef ENTITY_H
-#define ENTITY_H
-
 #include <vector>
 #include "Component.h"
 
@@ -27,5 +24,3 @@ private:
 	std::vector<Component*> components;
 	uint32_t containedTypes;
 };
-
-#endif // !ENTITY_H

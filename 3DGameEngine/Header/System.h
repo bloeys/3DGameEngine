@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef SYSTEM_H
-#define SYSTEM_H
-
 #include <unordered_map>
 #include <memory>
 #include "Component.h"
@@ -41,5 +38,3 @@ protected:
 	virtual void AddComponent(Entity &parentEntity) = 0;
 	virtual void DeleteComponent(Entity &parentEntity) = 0;
 };
-
-#endif

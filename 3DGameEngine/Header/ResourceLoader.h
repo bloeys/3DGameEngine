@@ -1,12 +1,9 @@
 #pragma once
 
-#ifndef RESOURCELOADER_H
-#define RESOURCELOADER_H
-
 #include <vector>
 
 class Mesh;
-class MeshData;
+struct MeshData;
 struct OGLTexture;
 
 class ResourceLoader
@@ -24,5 +21,3 @@ public:
 	/// <param name="splitStrings">A string vector where the string parts will be placed</param>
 	static void SplitString(const std::string &stringToSplit, const char delimiter, std::vector<std::string> &splitStrings);
 };
-
-#endif

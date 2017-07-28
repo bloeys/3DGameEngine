@@ -12,9 +12,6 @@
 
 using namespace sf;
 
-//Declare extern var delta
-float GameTime::delta = 0;
-
 EngineCore::EngineCore() : engineHalted(false), isEngineRunning(false), game(nullptr), gWindow(nullptr)
 {
 	//Bring window to life

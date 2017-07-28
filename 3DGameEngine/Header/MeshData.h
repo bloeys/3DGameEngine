@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef MeshData_H
-#define MeshData_H
-
 #include <vector>
 #include "Vertex.h"
 
@@ -25,4 +22,3 @@ struct MeshData
 		indices = meshIndices;
 	}
 };
-#endif

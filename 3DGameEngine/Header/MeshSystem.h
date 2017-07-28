@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef MeshSystem_H
-#define MeshSystem_H
-
 #include <unordered_map>
 #include "System.h"
 #include "Mesh.h"
@@ -28,5 +25,3 @@ private:
 	std::unordered_map<unsigned int, MyTransform*> transforms;
 	GLSLProgram glp;
 };
-
-#endif // !MeshSystem_H

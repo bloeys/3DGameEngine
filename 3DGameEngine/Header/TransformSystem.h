@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef TRANSFORMSYSTEM_H
-#define TRANSFORMSYSTEM_H
-
 #include <unordered_map>
 #include "System.h"
 
@@ -25,5 +22,3 @@ protected:
 private:
 	std::unordered_map<unsigned int, MyTransform*> transforms;
 };
-
-#endif

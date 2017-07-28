@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef ENGINECORE_H
-#define ENGINECORE_H
-
 #include <SFML/System.hpp>
 
 class GameWindow;
@@ -30,4 +27,3 @@ private:
 	void Render();
 	void Cleanup();
 };
-#endif // !ENGINECORE_H

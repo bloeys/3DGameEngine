@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef PRINTER_H
-#define PRINTER_H
-
 #include <string>
 #include <glm/fwd.hpp>
 
@@ -23,5 +20,3 @@ namespace Printer
 	void Print(const glm::quat &q);
 	void Print(const glm::mat4x4 &m4);
 }
-
-#endif // !PRINTER_H

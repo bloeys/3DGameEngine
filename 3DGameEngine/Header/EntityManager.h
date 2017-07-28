@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef ENTITYMANAGER_H
-#define ENTITYMANAGER_H
-
 #include <unordered_map>
 #include <memory>
 
@@ -23,5 +20,3 @@ public:
 private:
 	static std::unordered_map<unsigned int, std::unique_ptr<Entity>> entities;
 };
-
-#endif // !ENTITYMANAGER_H

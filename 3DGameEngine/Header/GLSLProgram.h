@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef GLSLPROGRAM_H
-#define GLSLPROGRAM_H
-
 #include <GL/glew.h>
 #include <string>
 #include <unordered_map>
@@ -41,5 +38,3 @@ private:
 
 	void CompileShaderPart(const std::string & filePath, const GLuint id);
 };
-
-#endif

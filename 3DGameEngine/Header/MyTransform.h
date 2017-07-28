@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef MYTRANSFORM_H
-#define MYTRANSFORM_H
-
 #include <glm/gtc/quaternion.hpp>
 #include <glm/fwd.hpp>
 #include "Component.h"
@@ -63,5 +60,3 @@ private:
 	// Inherited via Component
 	virtual void SetParentEntity(Entity & e) override;
 };
-
-#endif

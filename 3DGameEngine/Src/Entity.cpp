@@ -48,6 +48,8 @@ Component* Entity::GetComponent(Component::ComponentType type)
 	for (size_t i = 0; i < components.size(); i++)
 		if (components[i]->GetType() == type)
 			return components[i];
+
+	return nullptr;
 }
 
 bool Entity::HasComponent(Component::ComponentType type)

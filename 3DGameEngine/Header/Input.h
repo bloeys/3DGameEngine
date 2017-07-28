@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef INPUT_H
-#define INPUT_H
-
 #include <glm/fwd.hpp>
 #include <SFML/Window.hpp>
 
@@ -25,4 +22,3 @@ namespace Input
 	glm::ivec2 GetGlobalMousePos();
 	glm::ivec2 GetLocalMousePos();
 }
-#endif // !1

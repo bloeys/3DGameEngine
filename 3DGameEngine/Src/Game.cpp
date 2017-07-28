@@ -55,7 +55,8 @@ void Game::Update()
 	if (seconds >= 1)
 	{
 		Printer::Print(frames);
-		seconds = frames = 0;
+		seconds = 0;
+		frames = 0;
 	}
 
 	else

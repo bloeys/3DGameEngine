@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef MESH_H
-#define MESH_H
-
 #include <vector>
 #include "Vertex.h"
 #include "Component.h"
@@ -27,5 +24,3 @@ private:
 
 	virtual void SetParentEntity(Entity &e) override;
 };
-
-#endif // !MESH_H

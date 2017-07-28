@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef MYSPRITE_H
-#define MYSPRITE_H
-
 #include <GL/glew.h>
 
 class MySprite
@@ -17,5 +14,3 @@ public:
 private:
 	GLuint vboID = 0;
 };
-
-#endif

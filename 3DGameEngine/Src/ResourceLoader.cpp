@@ -19,7 +19,7 @@ bool ResourceLoader::ReadFileToBuffer(const std::string &filePath, std::vector<u
 	}
 
 	//Seek to end of file
-	file.seekg(0, std::ios::end);	//Start at the beginning, and move to the end of it
+	file.seekg(0, std::ios::end);
 
 	//Get file size
 	int fileSize = file.tellg();
@@ -27,8 +27,9 @@ bool ResourceLoader::ReadFileToBuffer(const std::string &filePath, std::vector<u
 	//Return to beginning
 	file.seekg(0, std::ios::beg);
 
+	//NOTE: This isn't really doing anything! is it?
 	//Just remove any file header bytes
-	fileSize -= file.tellg();
+	//fileSize -= file.tellg();
 
 	//Make the buffer (std::vector) the needed size to hold all the read data
 	buffer.resize(fileSize);
@@ -122,7 +123,7 @@ bool ResourceLoader::LoadMesh(const std::string &filePath, MeshData &m)
 			std::vector<std::string> faceDataSegment;	//This will store each face, where each 3 subsequent values correspond to Vertex/Tex.Coord./Vertex Normal
 
 			//For each face, we extract three segments of data, each containing information about a vertex(a segment looks like V/TC/VN. meanings above)
-			for (int i = 0; i < splitData.size(); i++)
+			for (size_t i = 0; i < splitData.size(); i++)
 			{
 
 				SplitString(splitData[i], '/', faceDataSegment);	//Split face part

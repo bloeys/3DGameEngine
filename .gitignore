@@ -6,6 +6,7 @@
 
 # Precompiled Headers
 *.gch
+*.ipch
 *.pch
 
 # Compiled Dynamic libraries
@@ -81,6 +82,8 @@ $RECYCLE.BIN/
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
+*.tlog
+*.log
 ExportedObj/
 obj/
 *.svd

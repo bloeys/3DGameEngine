@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef VERTEX_H
-#define VERTEX_H
-
 #include <GL/glew.h>
 #include <glm/vec3.hpp>
 
@@ -49,5 +46,3 @@ struct Vertex
 		color.a = a;
 	}
 };
-
-#endif // !VERTEX_H

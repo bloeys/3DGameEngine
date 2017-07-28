@@ -1,8 +1,5 @@
 #pragma once
 
-#ifndef COMPONENT_H
-#define COMPONENT_H
-
 #include <memory>
 
 class System;
@@ -34,4 +31,3 @@ protected:
 	ComponentType type;
 	uint32_t requiredComponents;
 };
-#endif
