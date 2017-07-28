@@ -1,6 +1,6 @@
 #pragma once
 
-#include <GL/glew.h>
+#include "OGLTexture.h"
 
 class MySprite
 {
@@ -8,9 +8,12 @@ public:
 
 	void SetParentEntity();
 
-	MySprite(float x, float y, float width, float height);
+	MySprite();
+	void SetTexture(OGLTexture &tex);
+	void Draw();
 	~MySprite();
 
 private:
-	GLuint vboID = 0;
+	OGLTexture texture;
+	unsigned int vboID, iboID;
 };

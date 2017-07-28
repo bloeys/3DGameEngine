@@ -3,7 +3,7 @@
 #include <sstream>
 #include "ResourceLoader.h"
 #include "Printer.h"
-#include "GLTexture.h"
+#include "OGLTexture.h"
 #include "Mesh.h"
 #include "MeshData.h"
 
@@ -55,22 +55,21 @@ bool ResourceLoader::LoadTexture(const std::string &filePath, OGLTexture &tex)
 	}
 
 	//Get pixel data from memory and point to them
-	unsigned char* pixels = SOIL_load_image_from_memory(&buffer[0], sizeof(buffer[0]) * buffer.size(), &tex.width, &tex.height, 0, SOIL_LOAD_AUTO);
+	unsigned char* pixels = SOIL_load_image_from_memory(&buffer[0], sizeof(buffer[0]) * buffer.size(), (int*)&tex.width, (int*)&tex.height, 0, SOIL_LOAD_AUTO);
 
 	//Generate and bind
 	glGenTextures(1, &tex.id);
 	glBindTexture(GL_TEXTURE_2D, tex.id);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tex.width, tex.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
-
+	
 	//Texture parameters
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glGenerateMipmap(GL_TEXTURE_2D);
-
-	//Unbind
-	glBindTexture(GL_TEXTURE_2D, 0);
+	
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, tex.width, tex.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, pixels);
+	glBindTexture(GL_TEXTURE_2D, 0);	//Unbind
 
 	return true;
 }
@@ -148,7 +147,5 @@ void ResourceLoader::SplitString(const std::string &stringToSplit, const char de
 
 	//Move in the stream until you hit a delimiter, then put whatever characters we got in the vector, rince and repeat
 	while (std::getline(stream, stringPart, delimiter))
-	{
 		splitStrings.emplace_back(stringPart);
-	}
 }

@@ -178,9 +178,7 @@ void GLSLProgram::Use()
 
 	//Enable all attributes
 	for (int i = 0; i < attribCount; i++)
-	{
 		glEnableVertexAttribArray(i);
-	}
 }
 
 void GLSLProgram::UnUse()
@@ -190,9 +188,7 @@ void GLSLProgram::UnUse()
 
 	//Disable attributes
 	for (int i = 0; i < attribCount; i++)
-	{
 		glDisableVertexAttribArray(i);
-	}
 }
 
 GLSLProgram::~GLSLProgram()

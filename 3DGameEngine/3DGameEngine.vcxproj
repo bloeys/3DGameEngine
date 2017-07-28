@@ -165,7 +165,7 @@
     <ClInclude Include="Header\GameTime.h" />
     <ClInclude Include="Header\GameWindow.h" />
     <ClInclude Include="Header\GLSLProgram.h" />
-    <ClInclude Include="Header\GLTexture.h" />
+    <ClInclude Include="Header\OGLTexture.h" />
     <ClInclude Include="Header\Input.h" />
     <ClInclude Include="Header\Mesh.h" />
     <ClInclude Include="Header\MeshData.h" />

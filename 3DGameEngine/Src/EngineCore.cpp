@@ -50,8 +50,6 @@ void EngineCore::Update()
 		Input::Update();
 		game->Input();
 		game->Update();
-		
-		//Render frame
 		Render();
 
 		//Update delta time

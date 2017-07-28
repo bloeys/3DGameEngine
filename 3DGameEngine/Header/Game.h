@@ -1,5 +1,6 @@
 #pragma once
 
+#include "MySprite.h"
 class Game
 {
 public:
@@ -14,6 +15,6 @@ public:
 private:
 	float seconds;
 	int frames;
-
+	MySprite spr;
 	void InitSystems();
 };

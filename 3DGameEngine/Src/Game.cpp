@@ -9,7 +9,7 @@
 #include "Vertex.h"
 #include "MyTransform.h"
 #include "ResourceLoader.h"
-#include "GLTexture.h"
+#include "OGLTexture.h"
 #include "Entity.h"
 #include "MeshData.h"
 
@@ -19,7 +19,7 @@ float transformationSpd = 0;
 Game::Game() : seconds(0), frames(0)
 {
 	InitSystems();
-
+	
 	e.AddComponent(new MyTransform);
 	e.AddComponent(new Mesh());
 	e2.AddComponent(new MyTransform);
@@ -29,13 +29,15 @@ Game::Game() : seconds(0), frames(0)
 	ResourceLoader::LoadTexture(R"(Resources/Textures/ButtonRound_Red.png)", g);
 	if (g.id != 0)
 		Printer::Print("Texture Loaded");
-
+	
 	MeshData mData;
 	if (ResourceLoader::LoadMesh(R"(Resources\Models\SimpleCube.obj)", mData))
 		Printer::Print("Mesh Loaded");
 
 	((Mesh*)e.GetComponent(Component::ComponentType::Mesh))->AddVertices(mData);
 	((Mesh*)e2.GetComponent(Component::ComponentType::Mesh))->AddVertices(mData);
+
+	spr.SetTexture(g);
 }
 
 void Game::InitSystems()
@@ -74,6 +76,7 @@ void Game::Update()
 void Game::Render()
 {
 	System::UpdateSystem(System::SystemType::RenderSystem);
+	spr.Draw();
 }
 
 Game::~Game()
