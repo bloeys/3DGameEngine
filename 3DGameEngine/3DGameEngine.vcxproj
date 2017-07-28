@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -22,32 +22,32 @@
     <ProjectGuid>{E0C9E76D-238D-4E03-9BE5-38DB5ACEE487}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>My3DGameEngine</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -88,12 +88,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\omarm\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\omarm\Documents\Visual Studio 2017\Projects\C++\3DGameEngine\3DGameEngine\Header;C:\Users\omarm\Documents\Visual Studio 2017\Projects\C++\3DGameEngine\3DGameEngine\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\omarm\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Libs\SFML;C:\Users\omarm\Documents\Visual Studio 2015\Projects\C++\3DGameEngine\3DGameEngine\Libs</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\omarm\Documents\Visual Studio 2017\Projects\C++\3DGameEngine\3DGameEngine\Libs\SFML;C:\Users\omarm\Documents\Visual Studio 2017\Projects\C++\3DGameEngine\3DGameEngine\Libs</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-main-d.lib;sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;SOIL.lib;glew32.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LinkStatus>false</LinkStatus>
     </Link>
@@ -152,53 +152,58 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="3DGameEngine.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Component.h" />
-    <ClInclude Include="EngineCore.h" />
-    <ClInclude Include="Entity.h" />
-    <ClInclude Include="EntityManager.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="GameTime.h" />
-    <ClInclude Include="GameWindow.h" />
-    <ClInclude Include="GLSLProgram.h" />
-    <ClInclude Include="GLTexture.h" />
-    <ClInclude Include="Input.h" />
-    <ClInclude Include="MeshData.h" />
-    <ClInclude Include="MeshSystem.h" />
-    <ClInclude Include="ResourceLoader.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="MySprite.h" />
-    <ClInclude Include="MyTransform.h" />
-    <ClInclude Include="Printer.h" />
-    <ClInclude Include="RenderUtility.h" />
+    <ClInclude Include="Header\3DGameEngine.h" />
+    <ClInclude Include="Header\Camera.h" />
+    <ClInclude Include="Header\Component.h" />
+    <ClInclude Include="Header\EngineCore.h" />
+    <ClInclude Include="Header\Entity.h" />
+    <ClInclude Include="Header\EntityManager.h" />
+    <ClInclude Include="Header\Game.h" />
+    <ClInclude Include="Header\GameTime.h" />
+    <ClInclude Include="Header\GameWindow.h" />
+    <ClInclude Include="Header\GLSLProgram.h" />
+    <ClInclude Include="Header\GLTexture.h" />
+    <ClInclude Include="Header\Input.h" />
+    <ClInclude Include="Header\Mesh.h" />
+    <ClInclude Include="Header\MeshData.h" />
+    <ClInclude Include="Header\MeshSystem.h" />
+    <ClInclude Include="Header\MySprite.h" />
+    <ClInclude Include="Header\MyTransform.h" />
+    <ClInclude Include="Header\Printer.h" />
+    <ClInclude Include="Header\RenderUtility.h" />
+    <ClInclude Include="Header\resource.h" />
+    <ClInclude Include="Header\resource1.h" />
+    <ClInclude Include="Header\resource2.h" />
+    <ClInclude Include="Header\resource3.h" />
+    <ClInclude Include="Header\ResourceLoader.h" />
+    <ClInclude Include="Header\System.h" />
+    <ClInclude Include="Header\TransformSystem.h" />
+    <ClInclude Include="Header\Vertex.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="System.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="TransformSystem.h" />
-    <ClInclude Include="Vertex.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="3DGameEngine.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Component.cpp" />
-    <ClCompile Include="EngineCore.cpp" />
-    <ClCompile Include="Entity.cpp" />
-    <ClCompile Include="EntityManager.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameWindow.cpp" />
-    <ClCompile Include="GLSLProgram.cpp" />
-    <ClCompile Include="Input.cpp" />
-    <ClCompile Include="MeshSystem.cpp" />
-    <ClCompile Include="ResourceLoader.cpp" />
-    <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="MySprite.cpp" />
-    <ClCompile Include="MyTransform.cpp" />
-    <ClCompile Include="Printer.cpp" />
-    <ClCompile Include="RenderUtility.cpp" />
+    <ClCompile Include="Src\3DGameEngine.cpp" />
+    <ClCompile Include="Src\Camera.cpp" />
+    <ClCompile Include="Src\Component.cpp" />
+    <ClCompile Include="Src\EngineCore.cpp" />
+    <ClCompile Include="Src\Entity.cpp" />
+    <ClCompile Include="Src\EntityManager.cpp" />
+    <ClCompile Include="Src\Game.cpp" />
+    <ClCompile Include="Src\GameWindow.cpp" />
+    <ClCompile Include="Src\GLSLProgram.cpp" />
+    <ClCompile Include="Src\Input.cpp" />
+    <ClCompile Include="Src\Mesh.cpp" />
+    <ClCompile Include="Src\MeshSystem.cpp" />
+    <ClCompile Include="Src\MySprite.cpp" />
+    <ClCompile Include="Src\MyTransform.cpp" />
+    <ClCompile Include="Src\Printer.cpp" />
+    <ClCompile Include="Src\RenderUtility.cpp" />
+    <ClCompile Include="Src\ResourceLoader.cpp" />
+    <ClCompile Include="Src\System.cpp" />
+    <ClCompile Include="Src\TransformSystem.cpp" />
+    <ClCompile Include="Src\Window.cpp" />
     <ClCompile Include="stdafx.cpp" />
-    <ClCompile Include="System.cpp" />
-    <ClCompile Include="TransformSystem.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
